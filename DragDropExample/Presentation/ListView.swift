@@ -16,14 +16,14 @@ struct ListView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     Toggle("Edit mode", isOn: $isEditMode)
+                    Toggle("Selection mode", isOn: $isSelectionMode)
                 }
-                .padding([.horizontal, .top], 16.0)
-                List {
-                    ForEach(storage.users, id: \.self) { user in
-                        UserView(user: user)
-                    }
-                    .onMove {
-                        storage.users.move(fromOffsets: $0, toOffset: $1)
+                .padding(16.0)
+                Group {
+                    if isSelectionMode {
+                        List(selection: $selectedUsersSet) { listContentView }
+                    } else {
+                        List { listContentView }
                     }
                 }
                 .if(listStyleTag == 1) { $0.listStyle(DefaultListStyle()) }
@@ -41,6 +41,17 @@ struct ListView: View {
     @ObservedObject private var storage = UserStorage.shared
     @State private var listStyleTag = 1
     @State private var isEditMode = false
+    @State private var isSelectionMode = false
+    @State private var selectedUsersSet: Set<String> = []
+    
+    private var listContentView: some View {
+        ForEach(storage.users, id: \.self) { user in
+            UserView(user: user)
+        }
+        .onMove {
+            storage.users.move(fromOffsets: $0, toOffset: $1)
+        }
+    }
 }
 
 struct ListView_Previews: PreviewProvider {
