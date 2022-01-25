@@ -131,6 +131,8 @@
 			dependencies = (
 			);
 			name = DragDropExample;
+			packageProductDependencies = (
+			);
 			productName = DragDropExample;
 			productReference = A09742E127995DBD004B5CBC /* DragDropExample.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +161,8 @@
 				Base,
 			);
 			mainGroup = A09742D827995DBD004B5CBC;
+			packageReferences = (
+			);
 			productRefGroup = A09742E227995DBD004B5CBC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

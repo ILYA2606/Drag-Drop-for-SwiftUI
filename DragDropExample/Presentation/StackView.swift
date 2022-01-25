@@ -15,6 +15,7 @@ struct StackView: View {
                             Image(systemName: "line.3.horizontal")
                             UserView(user: user)
                         }
+                        .background(Color.white)
                         .contentShape(Rectangle())
                         .opacity(isDragging && draggedItem == user ? 0.2 : 1.0)
                         .onDrag(
@@ -24,6 +25,7 @@ struct StackView: View {
                             },
                             preview: {
                                 Text("Drag it!")
+                                    .background(Color.white)
                                     .frame(width: 200, height: 30)
                             }
                         )
