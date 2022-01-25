@@ -17,17 +17,16 @@ struct StackView: View {
                         }
                         .contentShape(Rectangle())
                         .opacity(isDragging && draggedItem == user ? 0.2 : 1.0)
-                        .if(isCustomPreview) {
-                            $0.onDrag {
+                        .onDrag(
+                            previewEnabled: isCustomPreview,
+                            data: {
                                 makeItemProvider(user: user)
-                            } preview: {
+                            },
+                            preview: {
                                 Text("Drag it!")
                                     .frame(width: 200, height: 30)
                             }
-                        }
-                        .if(!isCustomPreview) {
-                            $0.onDrag { makeItemProvider(user: user) }
-                        }
+                        )
                         .onDrop(of: [user], delegate: makeDropDelegate(user: user) )
                     }
                 }

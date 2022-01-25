@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A037F62A279FEE030095E4BA /* View+OnDrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A037F629279FEE030095E4BA /* View+OnDrag.swift */; };
 		A09742E527995DBD004B5CBC /* DragDropExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09742E427995DBD004B5CBC /* DragDropExampleApp.swift */; };
 		A09742E727995DBD004B5CBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09742E627995DBD004B5CBC /* ContentView.swift */; };
 		A09742E927995DC0004B5CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09742E827995DC0004B5CBC /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A037F629279FEE030095E4BA /* View+OnDrag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnDrag.swift"; sourceTree = "<group>"; };
 		A09742E127995DBD004B5CBC /* DragDropExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DragDropExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09742E427995DBD004B5CBC /* DragDropExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragDropExampleApp.swift; sourceTree = "<group>"; };
 		A09742E627995DBD004B5CBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				A097430527997C83004B5CBC /* DispatchQueue+Extension.swift */,
 				A09742F827996BF0004B5CBC /* View+If.swift */,
+				A037F629279FEE030095E4BA /* View+OnDrag.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				A097430227997554004B5CBC /* CommonDropDelegate.swift in Sources */,
 				A09742E727995DBD004B5CBC /* ContentView.swift in Sources */,
 				A09742E527995DBD004B5CBC /* DragDropExampleApp.swift in Sources */,
+				A037F62A279FEE030095E4BA /* View+OnDrag.swift in Sources */,
 				A097430627997C83004B5CBC /* DispatchQueue+Extension.swift in Sources */,
 				A09742F927996BF1004B5CBC /* View+If.swift in Sources */,
 				A09742F327995E8E004B5CBC /* ListView.swift in Sources */,
