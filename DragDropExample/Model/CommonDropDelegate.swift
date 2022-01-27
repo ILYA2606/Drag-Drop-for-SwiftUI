@@ -5,6 +5,7 @@ import SwiftUI
 
 struct CommonDropDelegate<Item: Equatable>: DropDelegate {
     let currentItem: Item
+    var operation: DropOperation = .move
     @Binding var items: [Item]
     @Binding var draggedItem: Item?
     var onEntered: ((Bool) -> ()) = { _ in }
@@ -18,7 +19,7 @@ struct CommonDropDelegate<Item: Equatable>: DropDelegate {
 
     func dropExited(info: DropInfo) { onExit() }
 
-    func dropUpdated(info: DropInfo) -> DropProposal? { .init(operation: .move) }
+    func dropUpdated(info: DropInfo) -> DropProposal? { .init(operation: operation) }
 
     func validateDrop(info: DropInfo) -> Bool { true }
 

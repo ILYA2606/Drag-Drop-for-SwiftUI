@@ -8,13 +8,16 @@ struct ListView: View {
         NavigationView {
             VStack(spacing: 0.0) {
                 Group {
-                    Picker(selection: $listStyleTag, label: Text("List style")) {
-                        Text("Default").tag(1)
-                        Text("Plain").tag(2)
-                        Text("Grouped").tag(3)
-                        Text("Sidebar").tag(4)
+                    HStack {
+                        Text("Style")
+                        Picker(selection: $listStyleTag, label: Text("List style")) {
+                            Text("Default").tag(1)
+                            Text("Plain").tag(2)
+                            Text("Grouped").tag(3)
+                            Text("Sidebar").tag(4)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                     Toggle("Edit mode", isOn: $isEditMode)
                     Toggle("Selection mode", isOn: $isSelectionMode)
                 }

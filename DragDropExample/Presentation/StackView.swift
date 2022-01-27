@@ -6,8 +6,18 @@ import SwiftUI
 struct StackView: View {
     var body: some View {
         VStack(spacing: 0.0) {
-            Toggle("Custom preview", isOn: $isCustomPreview)
-                .padding(16.0)
+            Group {
+                HStack {
+                    Text("Operation")
+                    Picker(selection: $operationTag, label: Text("Operation")) {
+                        Text("Move").tag(1)
+                        Text("Copy").tag(2)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+                Toggle("Custom preview", isOn: $isCustomPreview)
+            }
+            .padding(16.0)
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0.0) {
                     ForEach(storage.users, id: \.self) { user in
@@ -42,10 +52,19 @@ struct StackView: View {
     @State private var draggedItem: String?
     @State private var isDragging = false
     @State private var isCustomPreview = false
+    @State private var operationTag = 1
     
     private func makeDropDelegate(user: String) -> DropDelegate {
-        CommonDropDelegate(
+        let operation: DropOperation
+        switch operationTag {
+        case 1:
+            operation = .move
+        default:
+            operation = .copy
+        }
+        return CommonDropDelegate(
             currentItem: user,
+            operation: operation,
             items: $storage.users,
             draggedItem: $draggedItem,
             onEntered: { _ in
