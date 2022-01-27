@@ -68,20 +68,13 @@ struct StackView: View {
             items: $storage.users,
             draggedItem: $draggedItem,
             onEntered: { _ in
-                withAnimation {
-                    isDragging = true
-                }
+                withAnimation { isDragging = true }
             },
             onExit: {
-                withAnimation {
-                    isDragging = false
-                }
+                withAnimation { isDragging = false }
             },
             onPerform: {
-                withAnimation {
-                    isDragging = false
-                    draggedItem = nil
-                }
+                withAnimation { isDragging = false }
             }
         )
     }

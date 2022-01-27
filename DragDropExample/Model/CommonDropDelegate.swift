@@ -14,6 +14,7 @@ struct CommonDropDelegate<Item: Equatable>: DropDelegate {
 
     func performDrop(info: DropInfo) -> Bool {
         onPerform()
+        withAnimation { draggedItem = nil }
         return true
     }
 
