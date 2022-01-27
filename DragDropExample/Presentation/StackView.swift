@@ -39,7 +39,7 @@ struct StackView: View {
                                     .frame(width: 200, height: 30)
                             }
                         )
-                        .onDrop(of: ["public.text"], delegate: makeDropDelegate(user: user) )
+                        .onDrop(of: [.plainText], delegate: makeDropDelegate(user: user) )
                     }
                 }
                 .padding(.horizontal, 16.0)
