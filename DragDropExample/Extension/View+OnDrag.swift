@@ -10,7 +10,7 @@ extension View {
         data: @escaping () -> NSItemProvider,
         @ViewBuilder preview: () -> V
     ) -> some View {
-        if previewEnabled, #available(iOS 15.0, *) {
+        if previewEnabled, #available(iOS 15.0, *), #available(macOS 12.0, *) {
             onDrag(data, preview: preview)
         } else {
             onDrag(data)
